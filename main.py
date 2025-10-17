@@ -442,29 +442,9 @@ with gr.Blocks() as aptitude_tab:
             outputs=apt_tutor_chatbot
         )
 
-
-# Utility Tab (Now only Speech-to-Text)
-with gr.Blocks() as utility_tab:
-    gr.Markdown("# AI Utilities (SpeechRecognition STT)")
-    gr.Markdown("Transcribe audio using SpeechRecognition.")
-
-    with gr.Tab("Speech-to-Text"):
-        gr.Markdown("### Transcribe Uploaded Audio")
-        stt_upload_audio_input = gr.File(label="Upload Audio File", type="filepath")
-        stt_upload_output = gr.Textbox(label="Transcription (Uploaded)", interactive=False)
-        stt_upload_btn = gr.Button("Transcribe Uploaded")
-        stt_upload_btn.click(gradio_transcribe_uploaded_audio_endpoint, inputs=stt_upload_audio_input, outputs=stt_upload_output)
-
-        gr.Markdown("### Transcribe Recorded Audio")
-        stt_record_audio_input_utility = gr.Audio(label="Record Your Voice", sources=["microphone"], type="filepath")
-        stt_record_output = gr.Textbox(label="Transcription (Recorded)", interactive=False)
-        stt_record_btn = gr.Button("Transcribe Recorded")
-        stt_record_btn.click(gradio_transcribe_recorded_audio_endpoint, inputs=stt_record_audio_input_utility, outputs=stt_record_output)
-
-
 # Combine all tabs into a single Gradio App
 gr.TabbedInterface(
     [interviewer_tab, aptitude_tab, utility_tab],
-    ["Interviewer", "Aptitude Tutor", "Utilities"],
+    ["Interviewer", "Aptitude Tutor"],
     title="AI Assistant (Gradio - Gemini & NVIDIA)"
 ).launch(share=True)
