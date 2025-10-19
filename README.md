@@ -413,7 +413,3 @@ For issues, questions, or suggestions:
 - Aptitude tutor with progress tracking
 - Speech-to-text utilities
 - NVIDIA and Gemini API integration
-
----
-
-**Note**: This README assumes the presence of `interviewer_logic_gemini.py`, `summary_logic_gemini.py`, and a properly formatted `data/questions.json` file. Ensure all dependencies are installed and API keys are configured before running the application.
